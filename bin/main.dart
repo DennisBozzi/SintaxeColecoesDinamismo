@@ -6,25 +6,21 @@ void main() {
   registrarDestinos('Itália', registrosVisitados);
   registrarDestinos('Recife', registrosVisitados);
   registrarDestinos('Rio de Janeiro', registrosVisitados);
+  registrarDestinos("Venda Nova", registrosVisitados);
   registrarDestinos('Recife', registrosVisitados);
 
-  print(registrosVisitados);
-  // {Itália, Recife, Rio de Janeiro}
+  Map<String, dynamic> registrarPrecos = {};
 
-  print(registrosVisitados.first);
-  print(registrosVisitados.last);
-  print(registrosVisitados.isEmpty);
-  print(registrosVisitados.elementAt(1));
-  print(registrosVisitados.contains('Rio de Janeiro'));
-  print(registrosVisitados.contains('São Paulo'));
+  registrarPrecos[registrosVisitados.elementAt(0)] = 1200;
+  registrarPrecos[registrosVisitados.elementAt(1)] = 1500;
+  registrarPrecos[registrosVisitados.elementAt(2)] = 1500;
+  registrarPrecos[registrosVisitados.elementAt(0)] = 1900; //Atualizando Itália
+  registrarPrecos[registrosVisitados.elementAt(3)] = "Muito Caro";
 
-  List<String> lista = ["Arroz", "Banana"];
+  registrarPrecos.remove("Rio de Janeiro"); //Removendo Rio de Janeiro
 
-  registrosVisitados.addAll(lista);
-
-  for (String cidades in registrosVisitados) {
-    print(cidades);
-  }
+  print(
+      registrarPrecos); //print: {Itália: 1200.0, Recife: 1500.0, Rio de Janeiro: 1500.0}
 }
 
 Set<String> registrarDestinos(String destino, Set<String> banco) {
@@ -58,5 +54,3 @@ void escolherMeioTransporte(Transporte locomocao) {
 }
 
 enum Transporte { carro, bike, andando, skate, aviao, patins, trem }
-
-abstract class banana implements Iterable {}
