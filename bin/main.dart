@@ -25,7 +25,22 @@ void main() {
   print(num.runtimeType); //print: double
 
   num = "";
-  print(num.runtimeType);//print: String
+  print(num.runtimeType); //print: String
+
+  Viagem viagemHoje = Viagem();
+  viagemHoje.dinheiro;
+
+  Viagem.codigoTrabalho;
+  Viagem.printCodigo();
+}
+
+class Viagem {
+  static String codigoTrabalho = "3321";
+  double dinheiro = 0;
+
+  static printCodigo() {
+    print(codigoTrabalho);
+  }
 }
 
 Set<String> registrarDestinos(String destino, Set<String> banco) {
