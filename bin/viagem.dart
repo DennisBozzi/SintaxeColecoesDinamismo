@@ -7,14 +7,20 @@ class Viagem {
 
   Viagem({required this.locomocao});
 
-  static Set<String> bancoLocal = <String>{};
-  static Map<String, dynamic> bancoPrecos = {};
+  Set<String> bancoLocal = <String>{};
+  Map<String, dynamic> bancoPrecos = {};
 
-  static printCodigo() {
+  int _totalLocaisVisitados = 0;
+
+  int get getTotalLocaisVisitados {
+    return _totalLocaisVisitados;
+  }
+
+  printCodigo() {
     print(codigoTrabalho);
   }
 
-  static void escolherMeioTransporte({required Transporte locomocao}) {
+  void escolherMeioTransporte({required Transporte locomocao}) {
     switch (locomocao) {
       case Transporte.carro:
         print('Vou de CARRO para a aventura!');
@@ -38,12 +44,13 @@ class Viagem {
     }
   }
 
-  static Set<String> visitar({required String local}) {
+  Set<String> visitar({required String local}) {
     bancoLocal.add(local);
     return bancoLocal;
   }
 
-  static Map<String, dynamic> avaliar({required String local, required dynamic valor}) {
+  Map<String, dynamic> avaliar(
+      {required String local, required dynamic valor}) {
     bancoPrecos[local] = valor;
     return bancoPrecos;
   }
