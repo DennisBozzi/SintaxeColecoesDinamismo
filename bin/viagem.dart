@@ -12,11 +12,15 @@ class Viagem {
 
   int _totalLocaisVisitados = 0;
 
+  void set setTotalLocaisVisitados(int qtdLocais) {
+    _totalLocaisVisitados = qtdLocais;
+  }
+
   int get getTotalLocaisVisitados {
     return _totalLocaisVisitados;
   }
 
-  printCodigo() {
+  void printCodigo() {
     print(codigoTrabalho);
   }
 
@@ -46,6 +50,7 @@ class Viagem {
 
   Set<String> visitar({required String local}) {
     bancoLocal.add(local);
+    _totalLocaisVisitados++;
     return bancoLocal;
   }
 
